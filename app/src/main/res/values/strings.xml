@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TZ_LightIT</string>
+    <string name="email_addres">Enter LogIn</string>
+    <string name="sign_up">SignUp</string>
+    <string name="view_products">View Products</string>
+    <string name="log_in">LogIn</string>
+    <string name="welcome">Welcome</string>
+
+
+</resources>
