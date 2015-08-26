@@ -10,7 +10,7 @@
     >
 
     <ImageView
-        android:id="@+id/PostImageProduct"
+        android:id="@+id/postImageProduct"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:scaleType="centerCrop"
@@ -21,8 +21,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/PostImageProduct"
-        android:layout_toRightOf="@id/PostImageProduct"
+        android:layout_alignTop="@id/postImageProduct"
+        android:layout_toRightOf="@id/postImageProduct"
         android:maxLines="2"
         android:textIsSelectable="false"
         android:textSize="16sp"
@@ -33,8 +33,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignBottom="@id/PostImageProduct"
-        android:layout_toRightOf="@id/PostImageProduct"
+        android:layout_alignBottom="@id/postImageProduct"
+        android:layout_toRightOf="@id/postImageProduct"
         android:maxLines="1"
         android:textSize="12sp"
         />

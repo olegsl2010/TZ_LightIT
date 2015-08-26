@@ -16,8 +16,8 @@ public class InsertList extends ArrayList<PostData> {
         for (int i =0;i<=30;i++){
 
             data = new PostData();
-            data.setPostTitleProduct("product");
-            data.setPostDescriptionProduct("Product Description");
+            data.setPostTitleProduct("product"+i);
+            data.setPostDescriptionProduct("Product Description"+i);
             data.setPostImageProduct("IMG");
             listData.add(i,data);}
 

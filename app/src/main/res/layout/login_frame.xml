@@ -30,10 +30,10 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:ems="10"
-            android:id="@+id/email"
+            android:id="@+id/login"
             android:layout_gravity="center"
-            android:text="@string/email_addres"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            android:hint="@string/email_addres" />
     </LinearLayout>
 
     <LinearLayout
@@ -45,12 +45,12 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
             android:ems="10"
             android:id="@+id/password"
             android:layout_gravity="center"
-            android:text="Password"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
     </LinearLayout>
 
 

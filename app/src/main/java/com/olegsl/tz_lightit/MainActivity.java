@@ -3,6 +3,7 @@ package com.olegsl.tz_lightit;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+
 import com.olegsl.tz_lightit.StartMenu.StartFragment;
 
 
@@ -22,8 +23,5 @@ public class MainActivity extends Activity {
         }
 
     }
-
-
-
 
 }

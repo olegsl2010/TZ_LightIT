@@ -14,6 +14,9 @@ import com.olegsl.tz_lightit.R;
 
 import java.util.ArrayList;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class PostItemAdapter extends ArrayAdapter<PostData> {
 
 
@@ -29,10 +32,13 @@ public class PostItemAdapter extends ArrayAdapter<PostData> {
     }
 
     static class ViewHolder {
-        TextView postTitleProduct;
-        TextView postDescriptionProduct;
-        ImageView postImageProduct;
+        @Bind(R.id.postTitleProduct) TextView postTitleProduct;
+        @Bind(R.id.postDescriptionProduct)TextView postDescriptionProduct;
+        @Bind(R.id.postImageProduct)ImageView postImageProduct;
 
+        public ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 
     @Override
@@ -51,11 +57,8 @@ public class PostItemAdapter extends ArrayAdapter<PostData> {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.postitem, parent, false);
 
-            viewHolder = new ViewHolder();
+            viewHolder = new ViewHolder(convertView);
 
-            viewHolder.postImageProduct = (ImageView) convertView.findViewById(R.id.PostImageProduct);
-            viewHolder.postTitleProduct = (TextView) convertView.findViewById(R.id.postTitleProduct);
-            viewHolder.postDescriptionProduct= (TextView) convertView.findViewById(R.id.postDescriptionProduct);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();

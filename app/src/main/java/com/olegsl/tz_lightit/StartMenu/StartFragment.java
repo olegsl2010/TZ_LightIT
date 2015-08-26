@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.olegsl.tz_lightit.ListProduct.ListProduct;
 import com.olegsl.tz_lightit.R;
@@ -19,6 +21,7 @@ public class StartFragment extends Fragment implements View.OnClickListener {
     Button signUpButton;
     Button viewProducts;
     Button logInButton;
+    protected EditText login, password;
     FragmentTransaction fragManager;
 
 
@@ -31,6 +34,8 @@ public class StartFragment extends Fragment implements View.OnClickListener {
         signUpButton = (Button) rootView.findViewById(R.id.signUpButton);
         viewProducts = (Button) rootView.findViewById(R.id.viewProducts);
         logInButton = (Button) rootView.findViewById(R.id.logInButton);
+        login = (EditText) rootView.findViewById(R.id.login);
+        password = (EditText) rootView.findViewById(R.id.password);
 
 
         signUpButton.setOnClickListener(this);
@@ -59,11 +64,32 @@ public class StartFragment extends Fragment implements View.OnClickListener {
 //
                 fragManager.setCustomAnimations(R.animator.gla_there_come, R.animator.gla_there_gone);
                 fragManager.replace(R.id.container, new ListProduct());
-
+                fragManager.addToBackStack(null);
 
                 break;
 
             case R.id.logInButton:
+
+                final String getLogin = login.getText().toString();
+                final String getPassword = password.getText().toString();
+                ValidatorLogIn logIn = new ValidatorLogIn();
+
+                if (logIn.isValidEmail(getLogin) && logIn.isValidPassword(getPassword)== true) {
+                    Toast toast = new Toast(rootView.getContext());
+                    toast.makeText(rootView.getContext(),"Login and password is valid",Toast.LENGTH_LONG).show();
+
+                }
+
+
+                else
+                {
+                    if(logIn.isValidEmail(getLogin)!=true){
+                        login.setError("LogIn must count > 6 letters ");}
+                    if(logIn.isValidPassword(getPassword)!=true){
+                        password.setError("Password must contain title letter and digits");}
+                }
+
+
 //
 //                fragManager.setCustomAnimations(R.animator.gla_there_come, R.animator.gla_there_gone);
 //                fragManager.replace(R.id.container, new ForgotPassword());
