@@ -113,6 +113,8 @@ public class ListProduct extends Fragment implements SearchView.OnQueryTextListe
             if (listData.get(pos).getPostTitleProduct().contains(query)){
                 data = new PostData();
                 data.setPostTitleProduct(listData.get(pos).getPostTitleProduct());
+                data.setPostImageProduct(listData.get(pos).getPostImageProduct());
+                data.setPostDescriptionProduct(listData.get(pos).getPostDescriptionProduct());
                 searchData.add(data);
 
                 Log.d(TAG, listData.get(pos).getPostTitleProduct());
