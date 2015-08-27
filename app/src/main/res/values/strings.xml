@@ -8,6 +8,8 @@
     <string name="search_label">Search</string>
     <string name="search_hint">Search Names</string>
     <string name="password">Password</string>
+    <string name="login_error">LogIn must count > 6 letters</string>
+    <string name="password_error">Password must contain title letter and digits</string>
 
 
 </resources>

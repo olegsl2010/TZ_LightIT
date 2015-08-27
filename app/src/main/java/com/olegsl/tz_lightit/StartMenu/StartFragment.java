@@ -77,22 +77,17 @@ public class StartFragment extends Fragment implements View.OnClickListener {
                 if (logIn.isValidEmail(getLogin) && logIn.isValidPassword(getPassword)== true) {
                     Toast toast = new Toast(rootView.getContext());
                     toast.makeText(rootView.getContext(),"Login and password is valid",Toast.LENGTH_LONG).show();
-
                 }
-
 
                 else
                 {
                     if(logIn.isValidEmail(getLogin)!=true){
-                        login.setError("LogIn must count > 6 letters ");}
+                        login.setError(getString(R.string.login_error));}
                     if(logIn.isValidPassword(getPassword)!=true){
-                        password.setError("Password must contain title letter and digits");}
+                        password.setError(getString(R.string.password_error));}
                 }
 
 
-//
-//                fragManager.setCustomAnimations(R.animator.gla_there_come, R.animator.gla_there_gone);
-//                fragManager.replace(R.id.container, new ForgotPassword());
 
 
                 break;
