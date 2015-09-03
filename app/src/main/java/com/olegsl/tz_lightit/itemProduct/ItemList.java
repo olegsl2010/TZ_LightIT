@@ -4,7 +4,6 @@ import android.app.Fragment;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -119,11 +118,11 @@ public class ItemList extends Fragment {
 
         ratingBar = (RatingBar) rootView.findViewById(R.id.ratingBarMiddle);
 
-        ratingBar.setRating(middleRaiting());
+        ratingBar.setRating(middleRating());
 
     }
 
-    private int middleRaiting() {
+    private int middleRating() {
         int size =reviewToList.size();
         int summOfReviews=0;
         for (int i = 0;i<reviewToList.size();i++){
@@ -131,7 +130,6 @@ public class ItemList extends Fragment {
 
         }
         int middleRaiting = summOfReviews/size;
-        Log.d("rrrrrrr", String.valueOf(middleRaiting));
         return middleRaiting;
 
     }
