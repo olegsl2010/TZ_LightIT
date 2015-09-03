@@ -1,6 +1,6 @@
 package com.olegsl.tz_lightit.Data;
 
-import com.olegsl.tz_lightit.ListAdapter.PostData;
+import com.olegsl.tz_lightit.Instances.Product;
 import com.olegsl.tz_lightit.R;
 
 import java.util.ArrayList;
@@ -8,18 +8,18 @@ import java.util.Random;
 /**
  * Created by olegs_000 on 22.07.2015.
  */
-public class InsertListProducts extends ArrayList<PostData> {
+public class InsertListProducts extends ArrayList<Product> {
 
-    private ArrayList<PostData> listData;
-    PostData data;
+    private ArrayList<Product> listData;
+    Product data;
     private static final Random RANDOM = new Random();
 
-    public ArrayList<PostData> InsertList(){
+    public ArrayList<Product> InsertList(){
         listData = new ArrayList<>();
 
         for (int i =0;i<=30;i++){
 
-            data = new PostData();
+            data = new Product();
             data.setIdProduct(i);
             data.setPostTitleProduct(getRandomTitle()+i);
             data.setPostDescriptionProduct(getRandomDescription()+i);

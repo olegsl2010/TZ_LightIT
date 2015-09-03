@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.olegsl.tz_lightit.Instances.Product;
 import com.olegsl.tz_lightit.R;
 
 import java.util.ArrayList;
@@ -18,14 +19,14 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class PostItemAdapter extends ArrayAdapter<PostData> {
+public class PostProductItemAdapter extends ArrayAdapter<Product> {
 
 
     private Activity myContext;
-    private ArrayList<PostData> datas;
+    private ArrayList<Product> datas;
 
-    public PostItemAdapter(Context context, int textViewResourceId,
-                           ArrayList<PostData> objects) {
+    public PostProductItemAdapter(Context context, int textViewResourceId,
+                                  ArrayList<Product> objects) {
         super(context, textViewResourceId, objects);
 
         myContext = (Activity) context;
@@ -42,7 +43,7 @@ public class PostItemAdapter extends ArrayAdapter<PostData> {
     }
 
     @Override
-    public PostData getItem(int i) {
+    public Product getItem(int i) {
 
         return datas.get(i);
     }
@@ -55,7 +56,7 @@ public class PostItemAdapter extends ArrayAdapter<PostData> {
         if (convertView == null){
             LayoutInflater inflater = (LayoutInflater) myContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.postitem, parent, false);
+            convertView = inflater.inflate(R.layout.post_item_product, parent, false);
 
             viewHolder = new ViewHolder(convertView);
 

@@ -1,6 +1,6 @@
-package com.olegsl.tz_lightit.ListAdapter;
+package com.olegsl.tz_lightit.Instances;
 
-public class PostData {
+public class Product {
 
     private  Integer idProduct;
 

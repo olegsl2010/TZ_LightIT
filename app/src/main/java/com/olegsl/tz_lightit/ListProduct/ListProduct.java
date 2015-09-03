@@ -11,8 +11,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 
 import com.olegsl.tz_lightit.Data.InsertListProducts;
-import com.olegsl.tz_lightit.ListAdapter.PostData;
-import com.olegsl.tz_lightit.ListAdapter.PostItemAdapter;
+import com.olegsl.tz_lightit.Instances.Product;
+import com.olegsl.tz_lightit.ListAdapter.PostProductItemAdapter;
 import com.olegsl.tz_lightit.R;
 import com.olegsl.tz_lightit.itemProduct.ItemList;
 
@@ -24,13 +24,13 @@ public class ListProduct extends Fragment implements SearchView.OnQueryTextListe
 
     View rootView;
     FragmentTransaction fragManager;
-    PostItemAdapter itemAdapter;
+    PostProductItemAdapter itemAdapter;
     public SearchView searchView;
     ListView ourListView;
-    private ArrayList<PostData> listData;
-    private ArrayList<PostData> searchData;
-    PostData data;
-    InsertListProducts listWallet;
+    private ArrayList<Product> listData;
+    private ArrayList<Product> searchData;
+    Product data;
+    InsertListProducts listProducts;
     private String title;
     private String TAG ="List Product";
 
@@ -43,9 +43,11 @@ public class ListProduct extends Fragment implements SearchView.OnQueryTextListe
 
 
         ourListView = (ListView) rootView.findViewById(R.id.listView);
-        listWallet = new InsertListProducts();
+        if (listProducts==null && listData==null){
+        listProducts = new InsertListProducts();
         listData = new ArrayList<>();
-        listData = listWallet.InsertList();
+        listData = listProducts.InsertList();}
+
         toList(listData);
 
 
@@ -76,6 +78,7 @@ public class ListProduct extends Fragment implements SearchView.OnQueryTextListe
         ItemList itemList= new ItemList();
         itemList.setTextForView(title);
         itemList.setDescriptionProduct(listData.get(position).getPostDescriptionProduct());
+        itemList.setProductId(listData.get(position).getIdProduct());
         itemList.setImage(listData.get(position).getPostImageProduct());
         fragManager = getFragmentManager().beginTransaction()
                 .setCustomAnimations(R.animator.gla_there_come,R.animator.gla_there_gone);
@@ -84,8 +87,8 @@ public class ListProduct extends Fragment implements SearchView.OnQueryTextListe
         fragManager.commit();
     }
 
-    public void toList(ArrayList<PostData> listWallet) {
-        itemAdapter = new PostItemAdapter(getActivity(), R.layout.postitem, listWallet);
+    public void toList(ArrayList<Product> listProducts) {
+        itemAdapter = new PostProductItemAdapter(getActivity(), R.layout.post_item_product, listProducts);
         ourListView.setAdapter(itemAdapter);
     }
 
@@ -115,7 +118,7 @@ public class ListProduct extends Fragment implements SearchView.OnQueryTextListe
 
         for (int pos = 0; pos < listData.size(); pos++) {
             if (listData.get(pos).getPostTitleProduct().contains(query)){
-                data = new PostData();
+                data = new Product();
                 data.setPostTitleProduct(listData.get(pos).getPostTitleProduct());
                 data.setPostImageProduct(listData.get(pos).getPostImageProduct());
                 data.setPostDescriptionProduct(listData.get(pos).getPostDescriptionProduct());
