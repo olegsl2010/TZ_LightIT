@@ -21,7 +21,6 @@ public class MainActivity extends Activity {
                     .add(R.id.container, fragment)
                     .commit();
         }
-
     }
 
 }

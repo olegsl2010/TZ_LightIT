@@ -3,18 +3,19 @@ package com.olegsl.tz_lightit.ListProduct;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
-import com.olegsl.tz_lightit.ListAdapter.InsertList;
+
+import com.olegsl.tz_lightit.Data.InsertListProducts;
 import com.olegsl.tz_lightit.ListAdapter.PostData;
 import com.olegsl.tz_lightit.ListAdapter.PostItemAdapter;
 import com.olegsl.tz_lightit.R;
 import com.olegsl.tz_lightit.itemProduct.ItemList;
+
 import java.util.ArrayList;
 
 
@@ -29,7 +30,7 @@ public class ListProduct extends Fragment implements SearchView.OnQueryTextListe
     private ArrayList<PostData> listData;
     private ArrayList<PostData> searchData;
     PostData data;
-    InsertList listWallet;
+    InsertListProducts listWallet;
     private String title;
     private String TAG ="List Product";
 
@@ -42,7 +43,7 @@ public class ListProduct extends Fragment implements SearchView.OnQueryTextListe
 
 
         ourListView = (ListView) rootView.findViewById(R.id.listView);
-        listWallet = new InsertList();
+        listWallet = new InsertListProducts();
         listData = new ArrayList<>();
         listData = listWallet.InsertList();
         toList(listData);
@@ -74,6 +75,8 @@ public class ListProduct extends Fragment implements SearchView.OnQueryTextListe
         title = listData.get(position).getPostTitleProduct();
         ItemList itemList= new ItemList();
         itemList.setTextForView(title);
+        itemList.setDescriptionProduct(listData.get(position).getPostDescriptionProduct());
+        itemList.setImage(listData.get(position).getPostImageProduct());
         fragManager = getFragmentManager().beginTransaction()
                 .setCustomAnimations(R.animator.gla_there_come,R.animator.gla_there_gone);
         fragManager.replace(R.id.container, itemList);
@@ -98,7 +101,7 @@ public class ListProduct extends Fragment implements SearchView.OnQueryTextListe
         if (!newText.isEmpty()){
             displayResults(newText);
         } else {
-            ourListView.setAdapter(itemAdapter);
+            toList(listData);
         }
 
         return false;
@@ -109,6 +112,7 @@ public class ListProduct extends Fragment implements SearchView.OnQueryTextListe
 
         searchData= new ArrayList<>();
 
+
         for (int pos = 0; pos < listData.size(); pos++) {
             if (listData.get(pos).getPostTitleProduct().contains(query)){
                 data = new PostData();
@@ -116,17 +120,12 @@ public class ListProduct extends Fragment implements SearchView.OnQueryTextListe
                 data.setPostImageProduct(listData.get(pos).getPostImageProduct());
                 data.setPostDescriptionProduct(listData.get(pos).getPostDescriptionProduct());
                 searchData.add(data);
-
-                Log.d(TAG, listData.get(pos).getPostTitleProduct());
-
             }
         }
         toList(searchData);
-
           // Click listener for the searched item that was selected
         ourListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
 
                 String selectedName = searchData.get(position).getPostTitleProduct();
 

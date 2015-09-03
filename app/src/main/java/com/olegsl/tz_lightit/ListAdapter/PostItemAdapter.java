@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.olegsl.tz_lightit.R;
 
 import java.util.ArrayList;
@@ -33,7 +34,6 @@ public class PostItemAdapter extends ArrayAdapter<PostData> {
 
     static class ViewHolder {
         @Bind(R.id.postTitleProduct) TextView postTitleProduct;
-        @Bind(R.id.postDescriptionProduct)TextView postDescriptionProduct;
         @Bind(R.id.postImageProduct)ImageView postImageProduct;
 
         public ViewHolder(View view) {
@@ -64,9 +64,12 @@ public class PostItemAdapter extends ArrayAdapter<PostData> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.postImageProduct.setBackgroundColor(100);
+        Glide.with(viewHolder.postImageProduct.getContext())
+                .load(datas.get(position).getPostImageProduct())
+                .fitCenter()
+                .into(viewHolder.postImageProduct);
         viewHolder.postTitleProduct.setText(getItem(position).getPostTitleProduct());
-        viewHolder.postDescriptionProduct.setText(getItem(position).getPostDescriptionProduct());
+
 
 
         return convertView;
@@ -81,4 +84,6 @@ public class PostItemAdapter extends ArrayAdapter<PostData> {
     public int getCount() {
         return datas.size();
     }
+
+
 }

@@ -2,19 +2,29 @@ package com.olegsl.tz_lightit.ListAdapter;
 
 public class PostData {
 
+    private  Integer idProduct;
+
     private String postTitleProduct;
 
     private String postDescriptionProduct;
 
-    private String postImageProduct;
+    private int postImageProduct;
 
-    public void setPostImageProduct(String postImageProduct) {
+    public void setPostImageProduct(int postImageProduct) {
         this.postImageProduct = postImageProduct;
     }
 
-    public String getPostImageProduct() {
+    public int getPostImageProduct() {
 
         return postImageProduct;
+    }
+
+    public Integer getIdProduct() {
+        return idProduct;
+    }
+
+    public void setIdProduct(Integer idProduct) {
+        this.idProduct = idProduct;
     }
 
     public void setPostTitleProduct(String postTitleProduct) {
