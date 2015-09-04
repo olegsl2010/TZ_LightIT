@@ -1,4 +1,4 @@
-package com.olegsl.tz_lightit.FragmentAdapter;
+package com.olegsl.tz_lightit.FragmentProducts;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -13,7 +13,7 @@ import com.olegsl.tz_lightit.R;
 /**
  * Created by apple on 21.08.15.
  */
-public class ListFragmentAdapter extends Fragment {
+public class FragmentProducts extends Fragment {
 
     View rootView;
     FragmentTransaction fragManager;
