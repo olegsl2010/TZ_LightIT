@@ -57,7 +57,6 @@ public class StartFragment extends Fragment implements View.OnClickListener {
 //                fragManager.setCustomAnimations(R.animator.gla_there_come, R.animator.gla_there_gone);
 //                fragManager.replace(R.id.container, new ForgotPassword());
 
-
                 break;
 
             case R.id.viewProducts:
@@ -65,7 +64,6 @@ public class StartFragment extends Fragment implements View.OnClickListener {
                 fragManager.setCustomAnimations(R.animator.gla_there_come, R.animator.gla_there_gone);
                 fragManager.replace(R.id.container, new ListProduct());
                 fragManager.addToBackStack(null);
-
                 break;
 
             case R.id.logInButton:
@@ -86,9 +84,6 @@ public class StartFragment extends Fragment implements View.OnClickListener {
                     if(logIn.isValidPassword(getPassword)!=true){
                         password.setError(getString(R.string.password_error));}
                 }
-
-
-
 
                 break;
 

@@ -56,8 +56,6 @@ public class ListProduct extends Fragment implements SearchView.OnQueryTextListe
         searchView.setOnQueryTextListener(this);
         searchView.setOnCloseListener(this);
 
-
-
         ourListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -83,7 +81,7 @@ public class ListProduct extends Fragment implements SearchView.OnQueryTextListe
         fragManager = getFragmentManager().beginTransaction()
                 .setCustomAnimations(R.animator.gla_there_come,R.animator.gla_there_gone);
         fragManager.replace(R.id.container, itemList);
-        fragManager.addToBackStack("null");
+        fragManager.addToBackStack(null);
         fragManager.commit();
     }
 
