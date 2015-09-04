@@ -14,7 +14,7 @@ import com.olegsl.tz_lightit.Data.InsertListProducts;
 import com.olegsl.tz_lightit.Instances.Product;
 import com.olegsl.tz_lightit.ListAdapter.PostProductItemAdapter;
 import com.olegsl.tz_lightit.R;
-import com.olegsl.tz_lightit.itemProduct.ItemList;
+import com.olegsl.tz_lightit.itemProduct.ItemView;
 
 import java.util.ArrayList;
 
@@ -38,9 +38,6 @@ public class ListProduct extends Fragment implements SearchView.OnQueryTextListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.list_fragment_adapter, container, false);
-
-
-
 
         ourListView = (ListView) rootView.findViewById(R.id.listView);
         if (listProducts==null && listData==null){
@@ -73,14 +70,14 @@ public class ListProduct extends Fragment implements SearchView.OnQueryTextListe
     private void productView(int position) {
 
         title = listData.get(position).getPostTitleProduct();
-        ItemList itemList= new ItemList();
-        itemList.setTextForView(title);
-        itemList.setDescriptionProduct(listData.get(position).getPostDescriptionProduct());
-        itemList.setProductId(listData.get(position).getIdProduct());
-        itemList.setImage(listData.get(position).getPostImageProduct());
+        ItemView itemView = new ItemView();
+        itemView.setTextForView(title);
+        itemView.setDescriptionProduct(listData.get(position).getPostDescriptionProduct());
+        itemView.setProductId(listData.get(position).getIdProduct());
+        itemView.setImage(listData.get(position).getPostImageProduct());
         fragManager = getFragmentManager().beginTransaction()
                 .setCustomAnimations(R.animator.gla_there_come,R.animator.gla_there_gone);
-        fragManager.replace(R.id.container, itemList);
+        fragManager.replace(R.id.container, itemView);
         fragManager.addToBackStack(null);
         fragManager.commit();
     }

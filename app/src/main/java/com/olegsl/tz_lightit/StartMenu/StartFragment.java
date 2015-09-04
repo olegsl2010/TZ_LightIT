@@ -63,7 +63,6 @@ public class StartFragment extends Fragment implements View.OnClickListener {
 //
                 fragManager.setCustomAnimations(R.animator.gla_there_come, R.animator.gla_there_gone);
                 fragManager.replace(R.id.container, new ListProduct());
-                fragManager.addToBackStack(null);
                 break;
 
             case R.id.logInButton:

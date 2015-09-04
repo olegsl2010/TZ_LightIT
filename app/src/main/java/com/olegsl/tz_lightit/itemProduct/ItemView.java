@@ -27,7 +27,7 @@ import java.util.ArrayList;
 /**
  * Created by apple on 30.07.15.
  */
-public class ItemList extends Fragment {
+public class ItemView extends Fragment {
 
     PostReviewsItemAdapter itemAdapter;
     View rootView;
@@ -74,6 +74,10 @@ public class ItemList extends Fragment {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
         activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+
 
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) rootView.findViewById(R.id.collapsing_toolbar);
@@ -169,4 +173,6 @@ public class ItemList extends Fragment {
         listView.setLayoutParams(params);
         listView.requestLayout();
     }
+
+
 }
